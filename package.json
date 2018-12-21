@@ -1,0 +1,39 @@
+{
+  "name": "jaxmate_pure",
+  "version": "1.0.0",
+  "description": "JaxMaTe connecting to Pure server",
+  "main": "pure_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilqed/jaxmate_pure.git"
+  },
+  "keywords": [
+    "Pure",
+    "language",
+    "MathJax",
+    "REDUCE",
+    "Computer",
+    "Algebra",
+    "Systems",
+    "CAS"
+  ],
+  "author": "Kurt Pagani <nilqed@gmail.com> (https://github.com/nilqed)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nilqed/jaxmate_pure/issues"
+  },
+  "homepage": "https://github.com/nilqed/jaxmate_pure#readme",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "jq-console": "^2.13.2",
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "mathjax": "^2.7.5",
+    "socket.io-client": "^2.2.0"
+  }
+}
