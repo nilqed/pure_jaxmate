@@ -10,6 +10,8 @@
   .. npm install jquery-ui
        + jquery-ui@1.12.1 / added 1 package in 1.809s
   .. todo: use 'npm root' -> env var
+  .. Using template literals (check browsers)
+    developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 -->
 
 
@@ -39,7 +41,6 @@ margin: 0 auto;
 margin-top: 50px;
 } 
 */
-
 
 /* The inner console element. */
 .jqconsole {
@@ -71,7 +72,7 @@ color: #d00;
 color: #b00;
 font-weight: normal;
 }
-/* The text color of the output. */
+/* The text color of the text output. */
 .jqconsole-output {
 color: blue;
 }
@@ -85,12 +86,28 @@ color: #00a;
 
 <!-- SCRIPT CONFIG VARS -->
 <script>
-jxmt_start_msg="jaxmate-pure V 1.0.0 (type @help)\n\n\n";
+jxmt_start_msg="jaxmate-pure v1.0.0 (type @help ;-)\n\n\n";
 jxmt_prompt="> ";
 jxmt_cfg_prefix="@";
 jxmt_div_prefix='MathDiv';
 jxmt_text_output=false;
 jxmt_mathjax_output=true;
+jxmt_socket_io='http://localhost:3010';
+
+jxmt_help_text=`
+  Finish input operation  ............... Enter
+  Multiline ............................. Shift+Enter
+  History ............................... Up/Down
+  Zoom +/- .............................. Ctrl+[+,-]
+  MathJax settings ...................... Mouse+RClick
+  Console text on/off ................... @text on/off
+  MathJax output on/off ................. @mathjax on/off
+  Show history .......................... @history
+  Dump content .......................... @dump
+  Clear (! history+screen) .............. @clear
+  Pure version .......................... version;
+  ** see https://github.com/nilqed/jaxmate_pure for more.
+  \n`;
 </script>
 
 <!-- @SCRIPT MATHJAX CONFIG -->
@@ -122,12 +139,12 @@ Changed: TeX-AMS-MML_HTMLorMML -> TeX-AMS_CHTML
 <!-- -->
 <script src="/static/socket.io-client/dist/socket.io.js"></script>
 <script src="/static/jquery/dist/jquery.js"></script>
-<!-- script src="/static/jquery-ui/ui/widget.js"></script -->
 <script src="/static/jq-console/lib/jqconsole.js"></script>
 <script src="/static/mathjax/MathJax.js?config=TeX-AMS_CHTML" async></script>
+<!-- script src="/static/jquery-ui/ui/widget.js"></script -->
 
 <script>
-    var socket = io('http://localhost:3010');
+    var socket = io(jxmt_socket_io);
     socket.on('connect', function(){socket.emit('do something',{})});
     socket.on('myevent', function(data){});
     socket.on('disconnect', function(){});
@@ -181,19 +198,8 @@ Changed: TeX-AMS-MML_HTMLorMML -> TeX-AMS_CHTML
             break;
           case "@help":
             //window.open("https://github.com/nilqed", "_blank", 
-            //  "toolbar=no,menubar=no,titlebar=no, top=500,left=500,width=400,height=400");
-            htxt1="Finish input operation  ............... Enter\n";
-            htxt2="Multiline ............................. Shift+Enter\n";
-            htxt3="History ............................... Up/Down\n";
-            htxt4="Zoom +/- .............................. Ctrl+[+,-]\n";
-            htxt5="MathJax settings ...................... Mouse+RClick\n";
-            htxt6="Console text on/off ................... @text on/off\n";
-            htxt7="MathJax output on/off ................. @mathjax on/off\n";
-            htxt8="Show history .......................... @history\n";
-            htxt9="Dump content .......................... @dump\n";
-            htxt10="Clear (! history+screen) .............. @clear\n";
-            htxt=htxt1+htxt2+htxt3+htxt4+htxt5+htxt6+htxt7+htxt8+htxt9+htxt10;
-            jqconsole.Write(htxt, 'jqconsole-output');
+            //"toolbar=no,menubar=no, top=500,left=500,width=400,height=400");
+            jqconsole.Write(jxmt_help_text, 'jqconsole-output');
             break;
           //default  
           default:
