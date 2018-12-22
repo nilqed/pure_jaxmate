@@ -98,16 +98,22 @@ jxmt_help_text=`
   Finish input operation  ............... Enter
   Multiline ............................. Shift+Enter
   History ............................... Up/Down
-  Zoom +/- .............................. Ctrl+[+,-]
+  Zoom +/- .............................. Ctrl+Plus/Minus
   MathJax settings ...................... Mouse+RClick
   Console text on/off ................... @text on/off
   MathJax output on/off ................. @mathjax on/off
   Show history .......................... @history
   Dump content .......................... @dump
   Clear (! history+screen) .............. @clear
+  Pure help ............................. @pure-help
   Pure version .......................... version;
   ** see https://github.com/nilqed/jaxmate_pure for more.
   \n`;
+  
+jxmt_pure_help=`<p>The link below will open a new window/tab:
+  <a href="https://agraef.github.io/pure-docs/index.html" 
+     target="_blank">Pure Language and Library Documentation</a>
+  <br>`;
 </script>
 
 <!-- @SCRIPT MATHJAX CONFIG -->
@@ -200,6 +206,10 @@ Changed: TeX-AMS-MML_HTMLorMML -> TeX-AMS_CHTML
             //window.open("https://github.com/nilqed", "_blank", 
             //"toolbar=no,menubar=no, top=500,left=500,width=400,height=400");
             jqconsole.Write(jxmt_help_text, 'jqconsole-output');
+            break;
+          case "@pure-help":
+            //'<div class="pure">Pure</div>';
+            jqconsole.Append($(jxmt_pure_help));
             break;
           //default  
           default:
