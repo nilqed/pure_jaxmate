@@ -26,7 +26,9 @@ var input = process.stdin.pipe(repl.stdin);
 
 // Input init/end handling
 input.on('end', () => {console.log('Goodbye\n'); process.exit() });
-input.write('let x=123;let x=x+1;'); // let __jaxmate__=true;
+//input.write('let x=123;let x=x+1;'); 
+input.write('let __jaxmate__=true;\n');
+input.write('#! --enable jaxmate\n');
 
 // REPL on data event (response from pure interpreter)
 repl.stdout.on('data', (data) => {

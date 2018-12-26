@@ -1,0 +1,13 @@
+using system;
+puts "tests.pure\n";
+
+#! --ifdef jaxmate
+foo t = 100*t;
+#! --else 
+puts "undefined";
+#! --endif
+
+bar t = t*t;
+
+
+

@@ -12,6 +12,9 @@
   .. todo: use 'npm root' -> env var
   .. Using template literals (check browsers)
     developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+  .. jxmt_scale=110 ; -- scaling MathJax 
+  .. server: input.write('#! --enable jaxmate\n');
+             input.write('let __jaxmate__=true;\n');
 -->
 
 
@@ -93,6 +96,7 @@ jxmt_div_prefix='MathDiv';
 jxmt_text_output=false;
 jxmt_mathjax_output=true;
 jxmt_socket_io='http://localhost:3010';
+jxmt_scale=110;
 
 jxmt_help_text=`
   Finish input operation  ............... Enter
@@ -120,7 +124,7 @@ jxmt_pure_help=`<p>The link below will open a new window/tab:
 <!-- http://docs.mathjax.org/en/latest/configuration.html -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax:{inlineMath:[['$','$']]},
-    CommonHTML: { linebreaks: { automatic: true }, scale: 130 },
+    CommonHTML: { linebreaks: { automatic: true }, scale: jxmt_scale },
     "HTML-CSS": { linebreaks: { automatic: true }, fonts: ["TeX"], scale: 130},
     SVG: { linebreaks: { automatic: true } }});
 </script>
