@@ -1,5 +1,5 @@
 # jaxmate_pure
-Pure node server + JaxMaTe client
+Pure node server + JaxMaTe client (:warning: :construction:)
 
 Using a variant of [JaxMaTe](https://github.com/nilqed/jaxMaTe) tailored to the [Pure programming language](https://github.com/agraef/pure-lang).
 
@@ -8,7 +8,7 @@ Using a variant of [JaxMaTe](https://github.com/nilqed/jaxMaTe) tailored to the 
 Required:
 
 * [node.js](https://nodejs.org/en/) (e.g. `sudo apt install nodejs`)
-* [pure -i](), working (in path)
+* [pure -i](https://agraef.github.io/pure-lang/), in path, and optionally the [pure-reduce](https://github.com/agraef/pure-lang/wiki/Addons#pure-reduce) add-on.
 
 Get the repo:
 
@@ -26,6 +26,9 @@ Start:
 
 ![jxmt_pure](docs/jxmt_pure.png)
 
+## Customise
 
+:bell: [todo]
 
 ![jxmt_pure2](docs/jxmt_pure2.png)
+
