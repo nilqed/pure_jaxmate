@@ -1,0 +1,19 @@
+using system;
+
+/*
+__show__ x::int = sprintf "$$%d\\in\\mathbb{Z}$$" x;
+
+__show__ z::complex = sprintf "$$%d+%d\\cdot i$$" (re z,im z);
+
+*/
+
+
+pp x::int = sprintf "$$%d\\in\\mathbb{Z}$$" x; 
+pp x::bigint = sprintf "$$%s\\in\\mathbb{Z}$$" (str x);
+pp x::double = sprintf "$$%f\\in\\mathbb{R}$$" x;
+pp x::complex = sprintf "$$%d+%d\\cdot i$$" (re x,im x);
+
+
+type texstr s::string = s!0=="$" && s!(#s-1)=="$";
+__show__ t::texstr = sprintf "%s" t;
+
