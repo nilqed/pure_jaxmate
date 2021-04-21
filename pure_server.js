@@ -1,8 +1,3 @@
-// Start as follows (for the moment), paths have to be adjusted later
-// C:\Users\kfp\Desktop\work\jaxmate_pure>cd %USERPROFILE%
-// C:\Users\kfp>node C:\Users\kfp\Desktop\work\jaxmate_pure\pure_server.js
-
-
 // Spawning App
 const { spawn } = require('child_process');
 const repl = spawn('pure', ['-i']);
@@ -31,13 +26,18 @@ input.write('let __jaxmate__=true;\n');
 input.write('#! --enable jaxmate\n');
 
 // REPL on data event (response from pure interpreter)
+var buf = '';
 repl.stdout.on('data', (data) => {
   answer=data.toString();
   if (answer.endsWith('> ')){
-    answer = answer.replace(/> $/, ''); // rtrim pure prompt '>'
+    answer = answer.replace(/> $/, ''); 
+    answer = buf.concat(answer); buf = '';
+  } else  {console.log(`Out[${dataID}]:\n${answer}`);
+            console.log('** end buffering');
+             buf = buf.concat(answer); answer = '';
   };
   console.log(`Out[${dataID}]:\n${answer}`);
-  io.emit('pure_output',{id:dataID, data:answer});
+  io.emit('pure_output', {id:dataID, data:answer});
 });
 
 

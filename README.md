@@ -21,7 +21,7 @@ Start:
 * `node pure_server.js`
 * open http://localhost:3010, (e.g. `firefox localhost:3010`)
 
- :heavy_exclamation_mark: Tested with Firefox Quantum only (for the moment) on Windows 7/10 and Ubuntu 18.x. 
+ :heavy_exclamation_mark: Tested with Firefox
 
 
 ![jxmt_pure](docs/jxmt_pure.png)
