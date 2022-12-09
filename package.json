@@ -28,7 +28,7 @@
   "homepage": "https://github.com/nilqed/jaxmate_pure#readme",
   "dependencies": {
     "child_process": "^1.0.2",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "http": "0.0.0",
     "jq-console": "^2.13.2",
     "jquery": "^3.5.0",
